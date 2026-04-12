@@ -1,0 +1,28 @@
+{
+  "jdExtract": 6,
+  "jdExtractImage": 6,
+  "jdExtractText": 0,
+  "skillMatch": 6,
+  "greetingGenerate": 2,
+  "greetingRegenerate": 0,
+  "resumeUpload": 2,
+  "resumeGenerate": 0,
+  "resumeRegenerate": 2,
+  "copyResult": 1,
+  "totalRequests": 25,
+  "dailyStats": {
+    "2026-04-11": {
+      "jdExtract": 6,
+      "jdExtractImage": 6,
+      "jdExtractText": 0,
+      "skillMatch": 6,
+      "greetingGenerate": 2,
+      "greetingRegenerate": 0,
+      "resumeUpload": 2,
+      "resumeGenerate": 0,
+      "resumeRegenerate": 2,
+      "copyResult": 1,
+      "totalRequests": 25
+    }
+  }
+}

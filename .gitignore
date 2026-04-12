@@ -1,0 +1,22 @@
+# 忽略环境变量文件（包含敏感信息）
+.env
+
+# 忽略上传的文件
+uploads/
+
+# 忽略 Node.js 模块
+node_modules/
+
+# 忽略日志文件
+*.log
+npm-debug.log*
+
+# 忽略 IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 忽略操作系统文件
+.DS_Store
+Thumbs.db
