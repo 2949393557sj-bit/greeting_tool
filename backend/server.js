@@ -16,32 +16,16 @@ const VOLCENGINE_BASE_URL = process.env.VOLCENGINE_BASE_URL || 'https://ark.cn-b
 const API_KEY = process.env.API_KEY;
 const MODEL = process.env.MODEL;
 
-// 直接替换你原来的 DB_CONFIG ！！！
-const DB_CONFIG = {
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT || 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-};
-
 let dbPool = null;
 
 async function initDB() {
   try {
-    dbPool = mysql.createPool(DB_CONFIG);
+    dbPool = mysql.createPool(process.env.DATABASE_URL);
     const connection = await dbPool.getConnection();
     console.log('✅ MySQL 数据库连接成功');
     connection.release();
   } catch (error) {
     console.error('❌ MySQL 数据库连接失败:', error.message);
-    console.log('请确保：');
-    console.log('1. MySQL 服务已启动');
-    console.log('2. 数据库 greeting_tool 已创建');
-    console.log('3. 环境变量 DB_PASSWORD 已配置');
   }
 }
 
@@ -161,7 +145,9 @@ function buildAgentThreeSystem() {
 
 const upload = multer({ dest: 'uploads/' });
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://greeting-tool.vercel.app'
+}));
 app.use(express.json({ limit: '50mb' }));
 
 let ocrWorker = null;
