@@ -837,7 +837,7 @@ async function analyze() {
     if (currentTab === 'img') {
       userTwo = [
         ...jdImages.map(img => ({ type: 'image_url', image_url: { url: `data:${img.type};base64,${img.b64}` } })),
-        { type: 'text', text: '以上内容图片来自岗位 JD（可能多图）。请严格按系统提示从图中提取要求并输出 JSON。' }
+        { type: 'text', text: '以下是一段岗位 JD 文本，请严格按系统提示提取并输出 JSON。' }
       ];
     } else {
       userTwo = `以下是一段岗位 JD 文本，请严格按系统提示提取并输出 JSON。\n\n${jdText}`;
@@ -916,7 +916,7 @@ function buildUserJdTraitsForAgentThree() {
 
   const inferredReq = (jdStructured.required_skills || []).filter(s => s && !uReq.has(String(s).trim()));
   const inferredPlus = (jdStructured.plus_skills || []).filter(s => s && !uPlus.has(String(s).trim()));
-  const emotional = jdStructured.emotional_traits || [];
+  // const emotional = jdStructured.emotional_traits || [];
 
   const merged = [];
   const seen = new Set();
@@ -928,7 +928,7 @@ function buildUserJdTraitsForAgentThree() {
       merged.push(t);
     }
   }
-  pushUnique(emotional);
+  // pushUnique(emotional);
   pushUnique(inferredReq);
   pushUnique(inferredPlus);
   pushUnique(checkedTraits);
