@@ -146,9 +146,7 @@ function buildAgentThreeSystem() {
 
 const upload = multer({ dest: 'uploads/' });
 
-app.use(cors({
-  origin: 'https://greeting-tool.vercel.app'
-}));
+app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 let ocrWorker = null;
