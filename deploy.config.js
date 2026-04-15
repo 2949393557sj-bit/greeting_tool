@@ -4,7 +4,7 @@
 const config = {
   // 后端服务地址（部署时修改为实际地址）
   // 例如：http://your-server-ip:3000 或 https://your-domain.com
-  API_BASE_URL: 'http://localhost:3000',
+  API_BASE_URL: 'https://greetingtool-production.up.railway.app',
   
   // 数据库配置（后端 server.js 中也需要修改）
   DB_CONFIG: {

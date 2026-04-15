@@ -27,7 +27,7 @@
 
 ```javascript
 // 本地
-const url = 'http://localhost:3000/api/chat/completions';
+const url = 'https://greetingtool-production.up.railway.app/api/chat/completions';
 
 // 部署后（等 Railway 分配完域名再改）
 const url = 'https://your-railway-app.up.railway.app/api/chat/completions';

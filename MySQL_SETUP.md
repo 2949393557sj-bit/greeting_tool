@@ -57,7 +57,7 @@ node server.js
 
 ## 查看统计数据
 
-访问：http://localhost:3000/api/stats
+访问：https://greetingtool-production.up.railway.app/api/stats
 
 返回格式：
 

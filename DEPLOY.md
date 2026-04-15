@@ -19,7 +19,7 @@
 示例：
 ```javascript
 // 本地开发
-const url = 'http://localhost:3000/api/chat/completions';
+const url = 'https://greetingtool-production.up.railway.app/api/chat/completions';
 
 // 部署上线（改成你的地址）
 const url = 'https://your-domain.com/api/chat/completions';

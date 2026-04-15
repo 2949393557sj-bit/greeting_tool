@@ -782,7 +782,7 @@ dz.addEventListener('click', () => dz.focus());
 
 // ===== 火山方舟（通过后端代理调用）=====
 async function callClaude(messages, agentType = null, agentParams = null) {
-  const url = 'http://localhost:3000/api/chat/completions';
+  const url = 'https://greetingtool-production.up.railway.app/api/chat/completions';
 
   const res = await fetch(url, {
     method: 'POST',
@@ -988,7 +988,7 @@ async function copyResult() {
   });
   
   try {
-    await fetch('http://localhost:3000/api/track/copy', {
+    await fetch('https://greetingtool-production.up.railway.app/api/track/copy', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userId: USER_ID })
@@ -1140,7 +1140,7 @@ async function generateResumeGreeting(btnId) {
     formData.append('isRegenerate', isRegenerate);
     formData.append('userId', USER_ID);
     
-    const res = await fetch('http://localhost:3000/api/resume/generate', {
+    const res = await fetch('https://greetingtool-production.up.railway.app/api/resume/generate', {
       method: 'POST',
       body: formData
     });
