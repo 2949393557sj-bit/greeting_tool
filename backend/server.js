@@ -62,7 +62,7 @@ async function trackEvent(eventName, userId = null) {
     console.error('记录统计事件失败:', error.message);
   }
 }
-
+//
 async function getStats() {
   if (!dbPool) {
     return { error: '数据库未连接' };
