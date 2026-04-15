@@ -1,0 +1,11 @@
+{
+  "name": "greeting_tool",
+  "type": "node",
+  "root": "./backend",
+  "build": {
+    "command": "npm install"
+  },
+  "start": {
+    "command": "node server.js"
+  }
+}
