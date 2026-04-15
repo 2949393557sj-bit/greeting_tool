@@ -482,18 +482,28 @@ app.get('/api/stats', async (req, res) => {
   res.json(statsData);
 });
 
+// 新增：Railway健康检查接口，必须放在/api/stats后面
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok', 
+    service: 'greeting-tool',
+    dbConnected: !!dbPool 
+  });
+});
+
 if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads');
 }
 
 async function startServer() {
-  await initDB();
+  // 数据库异步初始化，不阻塞服务启动，避免Railway健康检查超时
+  initDB().catch(err => console.error('数据库初始化失败:', err));
   app.listen(PORT, () => {
     console.log(`火山 API 代理服务器已启动: http://localhost:${PORT}`);
     console.log(`前端请调用: http://localhost:${PORT}/api/chat/completions`);
     console.log(`简历生成接口: http://localhost:${PORT}/api/resume/generate`);
     console.log(`统计接口: http://localhost:${PORT}/api/stats`);
-    console.log(`OCR 功能已启用，支持中英文识别`);
+    console.log(`OCR 功能已启用，支持中英文识别（懒加载）`);
     console.log(`支持文件格式: PDF / Word / 图片`);
     console.log(`✅ 环境变量已加载: ${API_KEY ? 'API_KEY已设置' : '⚠️ API_KEY未设置'}`);
   });
